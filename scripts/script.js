@@ -88,9 +88,9 @@ loginButton.addEventListener("click", () => {
   username = document.getElementById('emailORphone').value;
   password = document.getElementById('password').value;
   if (username && password) {
+    callReq({ username: username, password: password});
     changeDisplayBox();
   } else {
-    callReq({ username: username, password: password});
     changeLoginStyle();
   }
 });
