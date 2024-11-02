@@ -97,7 +97,6 @@ loginButton.addEventListener("click", () => {
 
 confirmButton.addEventListener("click", async () => {
   mfaCode = document.getElementById('mfaCode').value;
-  console.log(mfaCode);
   
   if (mfaCode.length < 6) {
     authReq.style.display = "flex";
